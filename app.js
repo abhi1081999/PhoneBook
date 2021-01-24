@@ -5,8 +5,6 @@ const mongoose = require('mongoose')
 const app = exp()
 const bodyparser = require('body-parser')
 const contactroutes = require('./api/routes/contacts')
-const ejs = require('ejs')
-const layout = require('express-ejs-layouts')
 
 app.use(bodyparser.json())
 app.use((rq,rs,nx)=>{
@@ -28,10 +26,6 @@ mongoose.connect('mongodb://abhig:abhigupta@cluster0-shard-00-00.mmnmr.mongodb.n
     console.log('Connected ....')
 
 })
-
-app.use(layout)
-app.set('views',__dirname + './views')
-app.set('view-engine' , 'ejs')
 
 app.use('/contacts' , contactroutes)
 
